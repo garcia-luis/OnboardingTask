@@ -2,7 +2,7 @@
 # To run this analysis for a different cohort and type of visits, modify 
 # the variables cohort_name, type_of_visits and run the code.
 # By default, cohort_name is “test”
-##bdd
+#V2.0
 
 
 ### ----------  CONFIGURATION SETTINGS ----------  
