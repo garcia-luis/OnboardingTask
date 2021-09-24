@@ -3,6 +3,7 @@
 # the variables cohort_name, type_of_visits and run the code.
 # By default, cohort_name is “test”
 
+
 ### ----------  CONFIGURATION SETTINGS ----------  
 
 # Enter the name of the cohort
