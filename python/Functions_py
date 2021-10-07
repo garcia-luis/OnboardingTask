@@ -1,8 +1,8 @@
-#This template shows the functions used in the Process_Longitudinal.py and
-#Process_NonLongitudinal.py files
+# This template shows the functions used in the Process_Longitudinal.py and
+# Process_NonLongitudinal.py files
 
 # Import packages
-print("Import packages")
+print("Importing python packages")
 import neuroblu as nb
 import pandas as pd
 import numpy as np
@@ -10,16 +10,16 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from functools import reduce
 
-#Define availability function
-print("Create data_available function")
+# Define availability function
+print("Creating data_available function")
 def data_available (data_cohort):
   
   available = len(data_cohort['person_id'].unique()) 
   
   return available
 
-#Define percentage function
-print("Create percentage_available function")
+# Define percentage function
+print("Creating percentage_available function")
 def percentage_available (data_cohort, built_cohort):
   
   per_available = len(data_cohort['person_id'].unique()) / len(built_cohort) *100
@@ -27,75 +27,38 @@ def percentage_available (data_cohort, built_cohort):
   
   return percentage
 
-#Define horizontal barplot function using values for Longitudinal or NonUnique data
-print("Create hbarplotsvalues_longitudinal function")
-def hbarplotsvalues_longitudinal (data):
-  #Figure
-  plt.figure(figsize=(7,7))
-  plt.barh(data['Variables'], data['Available_data'], color = "royalblue") 
-  #Plot and axis titles
-  plt.title('Available data')
-  plt.ylabel('Variables')
-  plt.xlabel('Number of patients')
-  #Customize frame
-  plt.gca().spines['right'].set_visible(False)
-  plt.gca().spines['top'].set_visible(False)
-  #Save plot
-  plotfigure = plt.savefig('Available_Data_Longitudinal.png')
-  
-  return plotfigure
-
-#Define horizontal barplot function using percentages for Longitudinal or NonUnique data
-print("Create hbarplotspercentage_longitudinal function")
+# Define horizontal barplot function using percentages for Longitudinal or NonUnique data
+print("Creating hbarplotspercentage_longitudinal function")
 def hbarplotspercentage_longitudinal (data):
-  #Figure
+  # Figure
   plt.figure(figsize=(7,7))
   plt.barh(data['Variables'], data['Percentage_available_data'], color = "royalblue") 
-  #Plot and axis titles
+  # Plot and axis titles
   plt.title('Available data')
   plt.ylabel('Variables')
   plt.xlabel('Percentage of patients (%)')
-  #Customize frame
+  # Customize frame
   plt.gca().spines['right'].set_visible(False)
   plt.gca().spines['top'].set_visible(False)
-  #Save plot
+  # Save plot
   plotfigure = plt.savefig('Percentage_Available_Data_Longitudinal.png')
   
   return plotfigure
 
-#Define horizontal barplot function using values for Non Longitudinal data
-print("Create hbarplotsvalues_nonlongitudinal function")
-def hbarplotsvalues_nonlongitudinal (data):
-  #Figure
-  plt.figure(figsize=(7,7))
-  plt.barh(data['Variables'], data['Available_data'], color = "royalblue") 
-  #Plot and axis titles
-  plt.title('Available data')
-  plt.ylabel('Variables')
-  plt.xlabel('Number of patients')
-  #Customize frame
-  plt.gca().spines['right'].set_visible(False)
-  plt.gca().spines['top'].set_visible(False)
-  #Save plot
-  plotfigure = plt.savefig('Available_Data_NonLongitudinal.png')
-  
-  return plotfigure
-
-#Define horizontal barplot function using percentages for Non Longitudinal data
-print("Create hbarplotspercentage_nonlongitudinal function")
+# Define horizontal barplot function using percentages for Non Longitudinal data
+print("Creating hbarplotspercentage_nonlongitudinal function")
 def hbarplotspercentage_nonlongitudinal (data):
-  #Figure
+  # Figure
   plt.figure(figsize=(7,7))
   plt.barh(data['Variables'], data['Percentage_available_data'], color = "royalblue") 
-  #Plot and axis titles
+  # Plot and axis titles
   plt.title('Available data')
   plt.ylabel('Variables')
   plt.xlabel('Percentage of patients (%)')
-  #Customize frame
+  # Customize frame
   plt.gca().spines['right'].set_visible(False)
   plt.gca().spines['top'].set_visible(False)
-  #Save plot
+  # Save plot
   plotfigure = plt.savefig('Percentage_Available_Data_NonLongitudinal.png')
   
   return plotfigure
-
