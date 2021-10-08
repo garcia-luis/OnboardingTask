@@ -20,6 +20,28 @@ def percentage_available (data_cohort, built_cohort):
   
   return percentage
 
+# This template shows the functions used in the Process_Longitudinal.py and
+# Process_NonLongitudinal.py files
+
+# Import packages
+print("Importing python packages")
+import neuroblu as nb
+import pandas as pd
+import numpy as np
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+from functools import reduce
+
+# Define percentage function
+print("Creating percentage_available function")
+def percentage_available (data_cohort, built_cohort):
+  
+  # Percentage is calculated as the available data for patients / total patients *100
+  per_available = len(data_cohort['person_id'].unique()) / len(built_cohort) *100
+  percentage = round(per_available, 2)
+  
+  return percentage
+
 # Define horizontal barplot function using percentages for Longitudinal or NonUnique data
 print("Creating hbarplotspercentage_longitudinal function")
 def hbarplotspercentage_longitudinal (data):
@@ -27,7 +49,7 @@ def hbarplotspercentage_longitudinal (data):
   plt.figure(figsize=(7,7))
   plt.barh(data['Variables'], data['Percentage_available_data'], color = "royalblue") 
   # Plot and axis titles
-  plt.title('Available data')
+  plt.title('Available data', loc = 'center')
   plt.ylabel('Variables')
   plt.xlabel('Percentage of patients (%)')
   # Customize frame
@@ -45,7 +67,7 @@ def hbarplotspercentage_nonlongitudinal (data):
   plt.figure(figsize=(7,7))
   plt.barh(data['Variables'], data['Percentage_available_data'], color = "royalblue") 
   # Plot and axis titles
-  plt.title('Available data')
+  plt.title('Available data', loc = 'center')
   plt.ylabel('Variables')
   plt.xlabel('Percentage of patients (%)')
   # Customize frame
