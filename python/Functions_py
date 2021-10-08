@@ -10,18 +10,11 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from functools import reduce
 
-# Define availability function
-print("Creating data_available function")
-def data_available (data_cohort):
-  
-  available = len(data_cohort['person_id'].unique()) 
-  
-  return available
-
 # Define percentage function
 print("Creating percentage_available function")
 def percentage_available (data_cohort, built_cohort):
   
+  # Percentage is calculated as the available data for patients / total patients *100
   per_available = len(data_cohort['person_id'].unique()) / len(built_cohort) *100
   percentage = round(per_available, 2)
   

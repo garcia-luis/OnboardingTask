@@ -56,13 +56,13 @@ def processNonLongitudinal (cohort_name):
 
   for i in colnames:
     print("Processing %s data"%(i))
-    total = 0 # Set total to zero
+    total = 0 # Reset total to zero
     total = len(data['%s'%(i)]) # Estimate total data
-    missing = 0 # Set missing data to zero
+    missing = 0 # Reset missing data to zero
     missing = data['%s'%(i)].isnull().sum()
-    available = 0 # Set available to zero
+    available = 0 # Reset available to zero
     available = total - missing # Estimate total available data
-    per_available = 0 # Set per_available to zero
+    per_available = 0 # Reset per_available to zero
     per_available = available / total *100
     # Fill dictionary with calculations
     dct['Percentage_available_data'][names[(i)]] = '%.2f'%(per_available)
@@ -83,7 +83,7 @@ def processNonLongitudinal (cohort_name):
   # Reorder columns
   df = df[["Variables", "Percentage_available_data"]]
   
-  #Rename Percentage_available_data column for csv file which is created below
+  # Rename Percentage_available_data column for csv file which is created below
   df_nice_names = df.rename(columns={'Percentage_available_data': 'Percentage available (%)'})
   
   # Save df to csv

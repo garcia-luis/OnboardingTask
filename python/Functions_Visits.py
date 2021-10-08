@@ -1,7 +1,7 @@
 #This template shows the functions used in the Process_Visits.py file
 
 # Import packages
-print("Import packages")
+print("Importing python packages")
 import neuroblu as nb
 import pandas as pd
 import numpy as np
@@ -9,14 +9,6 @@ import matplotlib as mpl
 import matplotlib.pyplot as plt
 from functools import reduce
 from textwrap import wrap
-
-# Define visitis availability function
-print("Create visits_available function")
-def visits_available (data_cohort):
-  
-  available = len(data_cohort['visit_occurrence_id'].unique()) 
-  
-  return available
 
 # Define visits percentage function
 print("Create visits_percentage_available function")
